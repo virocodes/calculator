@@ -48,6 +48,7 @@ const decimal = document.querySelector('.decimal');
 const opps = document.querySelectorAll('div.opps > button');
 const equals = document.querySelector('button.equals');
 const clear = document.querySelector('button.clear');
+const del = document.querySelector('.delete');
 
 nums.forEach((item) => {
     item.addEventListener('click', () => {
@@ -91,3 +92,9 @@ clear.addEventListener('click', () => {
     opp = undefined;
     decimal.style.display = 'inline-block';
 });
+
+del.addEventListener('click', () => {
+    let newVal = displayValue.slice(0, -1);
+    displayValue = newVal;
+    display.textContent = displayValue;
+})
