@@ -32,7 +32,7 @@ let equate = function() {
     } else {
         final = operate(opp, num1, num2);
         let rounded = Math.round(final * 1000) / 1000;
-        displayValue = rounded;
+        displayValue = rounded.toString();
         display.textContent = displayValue;
     }
 }
@@ -44,6 +44,7 @@ let includesOpps = function(str) {
 let displayValue = "";
 const display = document.querySelector('div.display')
 const nums = document.querySelectorAll('div.nums > button');
+const decimal = document.querySelector('.decimal');
 const opps = document.querySelectorAll('div.opps > button');
 const equals = document.querySelector('button.equals');
 const clear = document.querySelector('button.clear');
@@ -54,6 +55,12 @@ nums.forEach((item) => {
         display.textContent = displayValue;
     })
 });
+
+decimal.addEventListener('click', () => {
+    displayValue += '.';
+    display.textContent = displayValue;
+    decimal.style.display = 'none';
+})
 
 let num1;
 let num2;
@@ -70,6 +77,7 @@ opps.forEach((item) => {
             displayValue += " " + item.textContent + " ";
             display.textContent = displayValue;
         }
+        decimal.style.display = 'inline-block';
     })
 });
 
@@ -81,4 +89,5 @@ clear.addEventListener('click', () => {
     num1 = undefined;
     num2 = undefined;
     opp = undefined;
+    decimal.style.display = 'inline-block';
 });
