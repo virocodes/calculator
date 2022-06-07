@@ -98,3 +98,89 @@ del.addEventListener('click', () => {
     displayValue = newVal;
     display.textContent = displayValue;
 })
+
+window.addEventListener('keydown', event => {
+    if (event.key == '0') {
+        displayValue += '0'
+        display.textContent = displayValue;
+    } else if (event.key == '1') {
+        displayValue += '1'
+        display.textContent = displayValue;
+    } else if (event.key == '2') {
+        displayValue += '2'
+        display.textContent = displayValue;
+    } else if (event.key == '3') {
+        displayValue += '3'
+        display.textContent = displayValue;
+    } else if (event.key == '4') {
+        displayValue += '4'
+        display.textContent = displayValue;
+    } else if (event.key == '5') {
+        displayValue += '5'
+        display.textContent = displayValue;
+    } else if (event.key == '6') {
+        displayValue += '6'
+        display.textContent = displayValue;
+    } else if (event.key == '7') {
+        displayValue += '7'
+        display.textContent = displayValue;
+    } else if (event.key == '8') {
+        displayValue += '8'
+        display.textContent = displayValue;
+    } else if (event.key == '9') {
+        displayValue += '9'
+        display.textContent = displayValue;
+    } else if (event.key == '.') {
+        displayValue += '.';
+        display.textContent = displayValue;
+        decimal.style.display = 'none';
+    } else if (event.key == '+') {
+        if (!(includesOpps(displayValue))) {
+            displayValue += " + ";
+            display.textContent = displayValue;
+        } else {
+            equate();
+            displayValue += " + ";
+            display.textContent = displayValue;
+        }
+        decimal.style.display = 'inline-block';
+    } else if (event.key == '-') {
+        if (!(includesOpps(displayValue))) {
+            displayValue += " - ";
+            display.textContent = displayValue;
+        } else {
+            equate();
+            displayValue += " - ";
+            display.textContent = displayValue;
+        }
+        decimal.style.display = 'inline-block';
+    } else if (event.key == '*') {
+        if (!(includesOpps(displayValue))) {
+            displayValue += " * ";
+            display.textContent = displayValue;
+        } else {
+            equate();
+            displayValue += " * ";
+            display.textContent = displayValue;
+        }
+        decimal.style.display = 'inline-block';
+    } else if (event.key == '/') {
+        if (!(includesOpps(displayValue))) {
+            displayValue += " / ";
+            display.textContent = displayValue;
+        } else {
+            equate();
+            displayValue += " / ";
+            display.textContent = displayValue;
+        }
+        decimal.style.display = 'inline-block';
+    } else if (event.key == '=') {
+        equate();
+    } else if (event.key == 'Backspace') {
+        let newVal = displayValue.slice(0, -1);
+        displayValue = newVal;
+        display.textContent = displayValue;
+    } else if (event.key == 'Enter') {
+        equate();
+    }
+});
