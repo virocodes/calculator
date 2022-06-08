@@ -43,9 +43,9 @@ let includesOpps = function(str) {
 
 let displayValue = "";
 const display = document.querySelector('div.display')
-const nums = document.querySelectorAll('div.nums > button');
+const nums = document.querySelectorAll('.nums');
 const decimal = document.querySelector('.decimal');
-const opps = document.querySelectorAll('div.opps > button');
+const opps = document.querySelectorAll('.opps');
 const equals = document.querySelector('button.equals');
 const clear = document.querySelector('button.clear');
 const del = document.querySelector('.delete');
@@ -86,7 +86,7 @@ equals.addEventListener('click', equate);
 
 clear.addEventListener('click', () => {
     displayValue = '';
-    display.textContent = displayValue;
+    display.textContent = '0';
     num1 = undefined;
     num2 = undefined;
     opp = undefined;
