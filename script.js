@@ -27,7 +27,7 @@ let equate = function() {
     opp = equation[1];
     num2 = Number(equation[2]);
     if (opp == '/' && num2 == 0) {
-        displayValue = "Can't divide by 0!";
+        displayValue = "Nope!";
         display.textContent = displayValue;
     } else {
         final = operate(opp, num1, num2);
@@ -58,9 +58,9 @@ nums.forEach((item) => {
 });
 
 decimal.addEventListener('click', () => {
-    displayValue += '.';
+    displayValue += decimal.textContent;
     display.textContent = displayValue;
-    decimal.style.display = 'none';
+    decimal.textContent = '';
 })
 
 let num1;
@@ -78,7 +78,7 @@ opps.forEach((item) => {
             displayValue += " " + item.textContent + " ";
             display.textContent = displayValue;
         }
-        decimal.style.display = 'inline-block';
+        decimal.textContent = '.';
     })
 });
 
@@ -90,7 +90,7 @@ clear.addEventListener('click', () => {
     num1 = undefined;
     num2 = undefined;
     opp = undefined;
-    decimal.style.display = 'inline-block';
+    decimal.textContent = '.';
 });
 
 del.addEventListener('click', () => {
@@ -131,9 +131,9 @@ window.addEventListener('keydown', event => {
         displayValue += '9'
         display.textContent = displayValue;
     } else if (event.key == '.') {
-        displayValue += '.';
+        displayValue += decimal.textContent;
         display.textContent = displayValue;
-        decimal.style.display = 'none';
+        decimal.textContent = '';
     } else if (event.key == '+') {
         if (!(includesOpps(displayValue))) {
             displayValue += " + ";
@@ -143,7 +143,7 @@ window.addEventListener('keydown', event => {
             displayValue += " + ";
             display.textContent = displayValue;
         }
-        decimal.style.display = 'inline-block';
+        decimal.textContent = '.';
     } else if (event.key == '-') {
         if (!(includesOpps(displayValue))) {
             displayValue += " - ";
@@ -153,7 +153,7 @@ window.addEventListener('keydown', event => {
             displayValue += " - ";
             display.textContent = displayValue;
         }
-        decimal.style.display = 'inline-block';
+        decimal.textContent = '.';
     } else if (event.key == '*') {
         if (!(includesOpps(displayValue))) {
             displayValue += " * ";
@@ -163,7 +163,7 @@ window.addEventListener('keydown', event => {
             displayValue += " * ";
             display.textContent = displayValue;
         }
-        decimal.style.display = 'inline-block';
+        decimal.textContent = '.';
     } else if (event.key == '/') {
         if (!(includesOpps(displayValue))) {
             displayValue += " / ";
@@ -173,7 +173,7 @@ window.addEventListener('keydown', event => {
             displayValue += " / ";
             display.textContent = displayValue;
         }
-        decimal.style.display = 'inline-block';
+        decimal.textContent = '.';
     } else if (event.key == '=') {
         equate();
     } else if (event.key == 'Backspace') {
